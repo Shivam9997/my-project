@@ -43,7 +43,7 @@ main()
   });
 
 app.get("/", (req, res) => {
-  res.send("ApnaShivam is Live 🚀");
+  res.redirect("/listings");
 });
 
 
