@@ -32,13 +32,19 @@ const dbUrl = process.env.ATLASDB_URL;
 main()
   .then(() => {
     console.log("connected to DB");
-    app.listen(8080, () => {
-      console.log("server is listening on port 8080");
+
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log("server is listening on port", PORT);
     });
   })
   .catch((err) => {
     console.log("Mongo connection error:", err);
   });
+
+app.get("/", (req, res) => {
+  res.send("ApnaShivam is Live 🚀");
+});
 
 
 async function main() {
