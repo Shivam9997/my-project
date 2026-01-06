@@ -8,10 +8,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-console.log("Cloudinary config:", {
-  cloud: cloudinary.config().cloud_name,
-  key: cloudinary.config().api_key ? "OK" : "MISSING",
-});
+
 
 const storage = new CloudinaryStorage({
   cloudinary,
