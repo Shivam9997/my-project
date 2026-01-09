@@ -33,8 +33,6 @@ module.exports.createListing = async (req, res) => {
     return res.redirect("/listings/new");
   }
 
-   console.log("FILE:", req.file); 
-
   const newListing = new Listing(req.body.listing);
   newListing.owner = req.user._id;
 

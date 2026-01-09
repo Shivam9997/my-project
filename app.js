@@ -3,6 +3,7 @@ require('dotenv').config();
 }
 
 
+ require("./cloudConfig");
 
 const express = require("express");
 const app = express();
