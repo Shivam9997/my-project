@@ -10,9 +10,8 @@ module.exports.listingSchema = Joi.object({
     // price should be a number, not string
     price: Joi.number().min(0).required(),
 
-    image: Joi.object({
-      url: Joi.string().uri().allow("",null),
-    }).required(),
+    // ✅ DO NOT validate image here
+    image: Joi.any().optional(),
   }).required(),
 });
 
