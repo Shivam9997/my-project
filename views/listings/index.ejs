@@ -86,7 +86,7 @@
     <div><i class="fa-solid fa-house"></i></div>
     <p>Farm</p>
   </div>
-  <div class="filter">
+  <!-- <div class="filter">
     <div><i class="fa-solid fa-mountain-city"></i></div>
     <p>Amazing views</p>
   </div>
@@ -109,7 +109,7 @@
   <div class="filter">
     <div><i class="fa-solid fa-sailboat"></i></div>
     <p>Boats</p>
-  </div>
+  </div> -->
 
   <div class="tax-toggle">
     <div class="form-check-reverse form-switch">
@@ -120,7 +120,7 @@
         id="switchCheckDefault"
       />
       <label class="form-check-label" for="switchCheckDefault"
-        >Display total after taxes</label
+        >Display total taxes</label
       >
     </div>
   </div>
@@ -141,7 +141,7 @@
         <p class="card-text">
           <b> <%= listing.title %></b> <br />
           &#8377; <%= listing.price ? listing.price.toLocaleString("en-IN") :
-          "N/A" %>/nightt <i class="tax-info">&nbsp; &nbsp; +18% GST</i> <br />
+          "N/A"%>/night<i class="tax-info">&nbsp; +18% GST</i> <br />
         </p>
       </div>
     </div>
