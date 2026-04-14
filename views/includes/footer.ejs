@@ -1,17 +1,302 @@
-<footer>
-    <div class="f-info">
-        <div class="f-info-socials">
-            <i class="fa-brands fa-square-facebook"></i>
-            <i class="fa-brands fa-square-instagram"></i>
-            <i class="fa-brands fa-linkedin"></i>
+<style>
+/* ========================================
+   ENHANCED FOOTER STYLES
+   ======================================== */
+.footer-container {
+  margin-top: auto;
+}
 
+.f-info {
+  height: auto;
+  min-height: 8rem;
+  display: flex;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2rem 1rem;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
 
-        </div>
-          <div class="f-info-brand">&copy; WanderLust Private Limited</div>
-            <div class="f-info-links">
-                <a href="/privacy">Privacy</a>
-                <a href="/terms">Terms</a>
+.f-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fe424d, transparent);
+  animation: shimmer 3s infinite;
+}
 
-            </div>
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.f-info-socials,
+.f-info-links,
+.f-info-brand {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.f-info-brand {
+  color: #ecf0f1;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.f-info-links {
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.f-info-links a {
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  font-weight: 500;
+}
+
+.f-info-links a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #fe424d;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.f-info-links a:hover {
+  color: #fe424d;
+  transform: translateY(-3px);
+}
+
+.f-info-links a:hover::before {
+  width: 80%;
+}
+
+.f-info-socials {
+  gap: 1rem;
+}
+
+.f-info-socials i {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #ecf0f1;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-info-socials i:hover {
+  color: white;
+  background: linear-gradient(135deg, #fe424d 0%, #e63946 100%);
+  transform: translateY(-8px) rotate(360deg) scale(1.2);
+  box-shadow: 0 8px 20px rgba(254, 66, 77, 0.4);
+}
+
+.fa-square-facebook:hover {
+  background: linear-gradient(135deg, #3b5998 0%, #2d4373 100%) !important;
+  box-shadow: 0 8px 20px rgba(59, 89, 152, 0.4) !important;
+}
+
+.fa-square-instagram:hover {
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+  box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4) !important;
+}
+
+.fa-linkedin:hover {
+  background: linear-gradient(135deg, #0077b5 0%, #005885 100%) !important;
+  box-shadow: 0 8px 20px rgba(0, 119, 181, 0.4) !important;
+}
+
+/* Divider */
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  margin: 1rem 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .f-info {
+    padding: 1.5rem 1rem;
+  }
+
+  .f-info-links,
+  .f-info-socials,
+  .f-info-brand {
+    margin: 0.8rem 0;
+    max-width: 100%;
+  }
+
+  .f-info-socials i {
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .f-info-links {
+    gap: 1rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .f-info {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .f-info-socials,
+  .f-info-links,
+  .f-info-brand {
+    width: auto;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1024px) {
+  .f-info {
+    flex-direction: row;
+    padding: 2.5rem 3rem;
+  }
+
+  .f-info-socials,
+  .f-info-links,
+  .f-info-brand {
+    width: auto;
+    flex: 1;
+  }
+  
+  .f-info-socials {
+    justify-content: flex-start;
+  }
+  
+  .f-info-brand {
+    justify-content: center;
+  }
+  
+  .f-info-links {
+    justify-content: flex-end;
+  }
+}
+
+/* Newsletter Section (Optional Enhancement) */
+.newsletter-section {
+  background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+  padding: 2rem 1rem;
+  text-align: center;
+  color: white;
+}
+
+.newsletter-section h4 {
+  margin-bottom: 1rem;
+  color: #fe424d;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.newsletter-form input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+}
+
+.newsletter-form button {
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, #fe424d 0%, #e63946 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(254, 66, 77, 0.4);
+}
+</style>
+
+<footer class="footer-container">
+  <div class="f-info">
+    <!-- Social Media Links -->
+    <div class="f-info-socials">
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fa-brands fa-square-facebook"></i>
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-square-instagram"></i>
+      </a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
     </div>
+
+    <!-- Brand -->
+    <div class="f-info-brand">
+      <i class="fa-regular fa-compass" style="margin-right: 0.5rem; color: #fe424d;"></i>
+      &copy; <%= new Date().getFullYear() %> WanderLust Private Limited
+    </div>
+
+    <!-- Links -->
+    <div class="f-info-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+      <a href="/about">About Us</a>
+    </div>
+  </div>
 </footer>

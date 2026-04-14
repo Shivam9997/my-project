@@ -1,87 +1,228 @@
 <style>
-/*  serach */
-  .btn-search {
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
-      white-space: nowrap;
-  }
-  .btn-search:hover {
-    background-color: #fe424d;
-    color: #fff;
-  }
-  .btn-search i{
-     display:inline;
-     margin-right: 0.5rem;
-  }
-  .search-input {
-  width: 180px;
+/* ========================================
+   SEARCH STYLES
+   ======================================== */
+.btn-search {
+  background: linear-gradient(135deg, #fe424d 0%, #e63946 100%);
+  color: #fff;
+  border-radius: 25px;
+  padding: 0.6rem 1.5rem;
+  white-space: nowrap;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(254, 66, 77, 0.2);
+}
 
-  
+.btn-search:hover {
+  background: linear-gradient(135deg, #e63946 0%, #d62839 100%);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(254, 66, 77, 0.3);
+}
+
+.btn-search:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(254, 66, 77, 0.2);
+}
+
+.btn-search i {
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.search-input {
+  width: 250px;
+  border-radius: 25px;
+  border: 2px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #fe424d;
+  box-shadow: 0 0 0 3px rgba(254, 66, 77, 0.1);
+  outline: none;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Navbar Toggle Animation */
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(254, 66, 77, 0.2);
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  transform: rotate(90deg);
+}
+
+/* Navbar Collapse Animation */
+.navbar-collapse {
+  transition: all 0.3s ease-in-out;
+}
+
 /* Mobile adjustments */
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .search-input {
     width: 100%;
   }
 
   .navbar-nav {
     text-align: center;
+    padding: 1rem 0;
   }
 
   .navbar-nav .nav-link {
-    padding: 0.6rem 0;
+    padding: 0.8rem 1rem;
+    margin: 0.2rem 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background-color: rgba(254, 66, 77, 0.05);
   }
 
   .btn-search {
     width: 100%;
     margin-top: 0.5rem;
+    justify-content: center;
   }
 
-  form.d-flex {
+  .search-form {
     flex-direction: column;
     width: 100%;
+    padding: 1rem;
+  }
+  
+  .navbar-nav.ms-auto {
+    margin-left: 0 !important;
+    margin-top: 1rem;
   }
 }
+
+/* Tablet and small desktop */
+@media (min-width: 768px) and (max-width: 991px) {
+  .search-input {
+    width: 200px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .search-input {
+    width: 280px;
+  }
+  
+  .navbar-nav .nav-link {
+    margin: 0 0.3rem;
+  }
+}
+
+/* Smooth navbar appearance */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar-collapse.show,
+.navbar-collapse.collapsing {
+  animation: slideDown 0.3s ease;
+}
+
+/* User menu highlight */
+.navbar-nav .nav-link b {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover b {
+  transform: scale(1.05);
+  color: #fe424d;
 }
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+<nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"
-      ><i class="fa-regular fa-compass"></i
-    ></a>
+    <a class="navbar-brand" href="/listings" aria-label="WanderLust Home">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+    
     <button
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <!-- Primary Navigation -->
       <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
+        <a class="nav-link" href="/listings">
+          <i class="fa-solid fa-compass me-1"></i>Explore
+        </a>
       </div>
+      
+      <!-- Search Form -->
       <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
+        <form class="search-form" role="search">
           <input
-            class="form-control me-2 search-input"
+            class="form-control search-input"
             type="search"
-            placeholder="Search destination"
+            placeholder="Search destinations..."
+            aria-label="Search destinations"
           />
           <button class="btn btn-search" type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>Search
           </button>
         </form>
       </div>
+      
+      <!-- User Navigation -->
       <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Airbnb your home</a>
-        <% if (!currUser){ %>
-        <a class="nav-link" href="/signup"><b>Sign up</b></a>
-        <a class="nav-link" href="/login"><b>Log in</b></a>
-        <% } %> <% if (currUser){ %>
-        <a class="nav-link" href="/logout"><b>Log out</b></a>
+        <a class="nav-link" href="/listings/new">
+          <i class="fa-solid fa-house-circle-check me-1"></i>Airbnb your home
+        </a>
+        
+        <% if (!currUser) { %>
+          <a class="nav-link" href="/signup">
+            <i class="fa-solid fa-user-plus me-1"></i><b>Sign up</b>
+          </a>
+          <a class="nav-link" href="/login">
+            <i class="fa-solid fa-right-to-bracket me-1"></i><b>Log in</b>
+          </a>
+        <% } %>
+        
+        <% if (currUser) { %>
+          <a class="nav-link" href="/logout">
+            <i class="fa-solid fa-right-from-bracket me-1"></i><b>Log out</b>
+          </a>
         <% } %>
       </div>
     </div>
