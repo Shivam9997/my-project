@@ -22,6 +22,7 @@ const listingSchema = new mongoose.Schema({
     type:  Schema.Types.ObjectId,
     ref : "User",
   },
+  
 });
 
 
